@@ -1,7 +1,7 @@
 # Data-Dynamos
 Data Engineering at Scale Project 
 
-##Data Engineering at Scale on Book Ratings and Metadata using Apache Spark
+#Data Engineering at Scale on Book Ratings and Metadata using Apache Spark
 
 ## Team details
 ### Amith S, M-Tech (AI), amiths@iisc.ac.in
