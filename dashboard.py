@@ -21,7 +21,7 @@ trend = pd.read_csv("review_trends.csv")
 option = st.sidebar.selectbox(
     "Choose Insights:",
     ("Top Rated Books", "Price and Rating", "Most Reviewed Books", "Top Reviewers", "Top authors", "Top Genres",
-     "Reviews Yearly", "Reviews Monthly", "Publisher Ratings", "Publication and Review times", "Time Series Analysis" )
+     "Reviews Yearly", "Reviews Monthly", "Publisher Ratings", "Publication and Review times", "Time Series Analysis", "Prediction" )
 )
 
 if option == "Top Rated Books":
@@ -187,3 +187,21 @@ if option == "Publication and Review times":
         ax.set_ylabel(y_col)
         st.pyplot(fig) 
 
+if option == "Prediction":
+    st.header("Prediction Page")
+
+    # High-level selection options
+    selection_options = ["Authors", "Categories", "publisher", "publishedYear", "Price", "review/score"]
+    selected_options = st.multiselect("Select options to save:", options=selection_options)
+
+    # Display selections
+    st.write("Selected Options:", selected_options)
+
+    # Button to save selections
+    if st.button("Predict"):
+        # Create a DataFrame with the selected options
+        df = pd.DataFrame(selected_options, columns=["Selected Options"])
+        
+        # Save to a CSV file
+        df.to_csv("selected_options.csv", index=False)
+        
